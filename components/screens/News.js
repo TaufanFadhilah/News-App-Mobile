@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import { Container, Content, Toast } from 'native-base'
+import { Content, Toast } from 'native-base'
+import Layout from '../Layout'
 import Head from '../Head'
 import ContentNews from '../news/ContentNews'
 import Footer from "../Footer"
@@ -8,7 +9,6 @@ class News extends Component {
     static navigationOptions = {
         header: null,
     };
-
     constructor(props){
         super(props)
         this._onClick = this._onClick.bind(this)
@@ -55,13 +55,13 @@ class News extends Component {
 
     render() {
         return (
-            <Container>
+            <Layout>
                 <Head country={this.state.country} />
                 <Content>
-                    { this.loopingContent() }
+                    {this.loopingContent()}
                 </Content>
-                <Footer _onClick={this._onClick}/>
-            </Container>
+                <Footer _onClick={this._onClick} />
+            </Layout>
         );
     }
 }

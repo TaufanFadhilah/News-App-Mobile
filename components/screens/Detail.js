@@ -1,13 +1,13 @@
 import React, { Component } from 'react';
 import { Image, Text, Linking } from 'react-native'
-import { Container, Content, H1, Button, Col } from 'native-base'
+import { Content, H1, Button, Col } from 'native-base'
+import Layout from '../Layout'
 import { Row, Grid } from 'react-native-easy-grid';
 import Head from '../HeadDetail'
 class Detail extends Component {
     static navigationOptions = {
         header: null,
     };
-
     constructor(props){
         super(props)
         this.state = props.navigation.state.params
@@ -20,8 +20,8 @@ class Detail extends Component {
 
     render() {
         return (
-            <Container>
-                <Head onBack={this._onBack} title={this.state.title}/>
+            <Layout>
+                <Head onBack={this._onBack} title={this.state.title} />
                 <Content>
                     <Grid>
                         <Row>
@@ -46,10 +46,10 @@ class Detail extends Component {
                                 {this.state.description}
                             </Text>
                         </Row>
-                        <Row style={{margin: 10}}>
+                        <Row style={{ margin: 10 }}>
                             <Col>
                                 <Button full onPress={() => { Linking.openURL(this.state.url) }}>
-                                    <Text style={{color: 'white'}}>Baca selengkapnya!</Text>
+                                    <Text style={{ color: 'white' }}>Baca selengkapnya!</Text>
                                 </Button>
                             </Col>
                         </Row>
@@ -60,7 +60,7 @@ class Detail extends Component {
                         </Row>
                     </Grid>
                 </Content>
-            </Container>
+            </Layout>
         );
     }
 }
